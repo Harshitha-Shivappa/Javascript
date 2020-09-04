@@ -1,0 +1,92 @@
+Question1: Program to search for a particular character in a string.
+<html>
+   <head>
+      <title>Character in a string</title>
+   </head>
+   <body>
+      <script>
+         function charStr(char) {
+            var text = "My Name is Harshitha";
+            if (text.indexOf(char)>-1 )
+            {
+              return "Element found";
+            }
+            else{
+              return "Element not found";
+            }
+         }
+         document.write(charStr('is'));
+      </script>
+   </body>
+</html>
+
+Question2: Program to convert minutes to seconds.
+<html>
+   <head>
+      <title>Minutes to seconds</title>
+   </head>
+   <body>
+      <script>
+         function m2s(min) {
+            var sec = min * 60;
+            return sec + " sec";
+         }
+         document.write(m2s(100));
+      </script>
+   </body>
+</html>
+
+Question3: Program to search for a element in a array of strings.
+<html>
+<head>
+	<title> Search Element in array </title>
+</head>
+<body>
+<script>
+  let city = ["Bangalore", "Mysore", "Hubli", "Bidar", "Hassan", "Udupi"];
+  let a = city.indexOf("Bangalore");
+  if(a>-1)
+ {
+    console.log("Element is found in location "+(a+1));
+  }
+  else
+ {
+    console.log("Element not found");
+  }
+</script>
+</body>
+</html>
+
+Question4: Program to display only elements containing 'a' in them in a array.
+<html>
+<head>
+	<title> Element containing 'a' </title>
+</head>
+<body>
+<script>
+  let city = ["Bangalore", "Mysore", "Hubli", "Bidar", "Hassan", "Udupi"];
+let i;
+for (i = 0; i < city.length; i++) 
+{
+ if(city[i].includes("a"))
+  console.log(city[i]);
+}
+</script>
+</body>
+</html>
+
+Question5: Print an array in reverese order
+<html>
+   <head>
+      <title>Reverse Array</title>
+   </head>
+   <body>
+      <script>
+        function reverseArray(arr){
+            
+            return arr.reverse();
+        }
+         document.write(reverseArray([1, 2, 3, 4, 5, 6, 7, 8, 9, 10]));
+      </script>
+   </body>
+</html>
