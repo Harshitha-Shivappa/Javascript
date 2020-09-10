@@ -1,0 +1,192 @@
+Q1)
+HTML file:
+<html>
+<head>
+<title>Image</title>
+</head>
+<body>
+<div id="data" align="center">
+<h3>Change Image</h3>
+<img src="image/img1.jpg" / id="image" width="350px"> <br> <br>
+<button onclick="rest()"> Reset Image </button>
+<button onclick="changeImage()" > Change Image </button>
+<button onclick="changeImages()">  Change Image Again </button>
+</div>
+<script src="image.js"></script>
+</body>
+</html>
+JS file:
+function changeImage() {
+	const ele = document.getElementById("image");
+	const newUrl = "image/img2.png";
+	ele.src = newUrl;
+}
+function changeImages() {
+	const ele = document.getElementById("image");
+	const newUrl = "image/img3.jpg";
+	ele.src = newUrl;
+}
+function rest() {
+	const ele = document.getElementById("image");
+	const newUrl = "image/img1.jpg";
+	ele.src = newUrl;
+}
+
+Q2)
+Html file:
+<html>
+<head>
+<title>Copy text</title>
+</head>
+<body>
+<div class="login">
+<p> Copy text from input one to input two after button click </p>
+<input type="text" id="first" class="input" placeholder="Type something"/> </br> </br> 
+<input type="text" id="second" class="input" placeholder="Content will be copied"/> </br> </br>
+<button onclick="copy()"> Click </button>
+</div>
+<script src="funct.js"></script>
+</body>
+</html>
+Js file:
+function copy() {	
+	const ele = document.getElementById("second");
+	const eles = document.getElementById("first").value;
+	ele.value = eles;
+}
+
+Q3)
+HTML file:
+<html>
+<head>
+<title> Print objects </title>
+</head>
+<body>
+
+ <script src="objects.js"></script>
+</body>
+</html>
+JS file:
+let person = [ 
+	{
+	name: "Tom",
+	age: 21,
+	country: "India",
+	hobby: ["Gardening", "Dancing", "Travelling"]
+	},
+	{
+	name: "Jerry",
+	age: 22,
+	country: "India",
+	hobby: ["Gardening", "Sketching", "Badminton"]
+	},
+	{
+	name: "Duck",
+	age: 21,
+	country: "India",
+	hobby: ["Singing", "Swimming", "Cooking"]
+	}
+]
+  function print() {
+   for (let i = 0; i < person.length; i++) {
+   console.log("Name: "+(person[i].name));
+   console.log("Age: "+person[i].age);
+   console.log("Country: "+person[i].country);
+   console.log("Hobbies are:");
+        for (let j = 0; j < person[i].hobby.length; j++)  {
+	 console.log(person[i].hobby[j]);
+}
+} }
+print();
+
+4th question (A)
+HTML file:
+<html>
+<head>
+<title> Print objects </title>
+</head>
+<body>
+ <script src="objects.js"></script>
+</body>
+</html>
+JS file:
+let person = [ 
+	{
+	name: "Tom",
+	age: 21,
+	country: "India",
+	hobby: ["Gardening", "Dancing", "Travelling"]
+	},
+	{
+	name: "Jerry",
+	age: 22,
+	country: "India",
+	hobby: ["Gardening", "Sketching", "Badminton"]
+	},
+	{
+	name: "Duck",
+	age: 31,
+	country: "India",
+	hobby: ["Singing", "Swimming", "Cooking"]
+	}
+]
+  function print() {
+   for (let i = 0; i < person.length; i++) {
+   
+   if((person[i].age) <30) {
+   console.log("Name: "+(person[i].name));
+   console.log("Age: "+person[i].age); 
+    console.log("Country: "+person[i].country);
+   console.log("Hobbies are:");
+        for (let j = 0; j < person[i].hobby.length; j++)  {
+	 console.log(person[i].hobby[j]);
+}}
+  
+} }
+print();
+
+4th question (B)
+HTML file:
+<html>
+<head>
+<title> Print objects </title>
+</head>
+<body>
+ <script src="objects.js"></script>
+</body>
+</html>
+JS file:
+let person = [ 
+	{
+	name: "Tom",
+	age: 21,
+	country: "Sri Lanka",
+	hobby: ["Gardening", "Dancing", "Travelling"]
+	},
+	{
+	name: "Jerry",
+	age: 22,
+	country: "India",
+	hobby: ["Gardening", "Sketching", "Badminton"]
+	},
+	{
+	name: "Duck",
+	age: 31,
+	country: "India",
+	hobby: ["Singing", "Swimming", "Cooking"]
+	}
+]
+  function print() {
+   for (let i = 0; i < person.length; i++) {
+   
+   if((person[i].country)=="India") {
+   console.log("Name: "+(person[i].name));
+   console.log("Age: "+person[i].age); 
+    console.log("Country: "+person[i].country);
+   console.log("Hobbies are:");
+        for (let j = 0; j < person[i].hobby.length; j++)  {
+	 console.log(person[i].hobby[j]);
+}}
+  
+} }
+print();
