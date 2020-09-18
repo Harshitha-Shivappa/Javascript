@@ -1,0 +1,573 @@
+Question 1 (A)
+<table cellpadding="2" cellspacing="2" border="1"  width="50%" align="center">
+<thead>
+    <tr>
+        <th>Name</th>
+        <th width="20%">Age</th>
+        <th width="12%">City</th>
+        <th width="12%">Salary</th>
+        <th width="30%">Job</th>
+    </tr>
+</thead>
+    <tbody id="tableData"></tbody>
+</table>
+<script type="text/javascript">
+    var mainObj = [
+        {
+            name: "Ranjitha",
+            age:  21,
+            city: "Coimbatore",
+            salary: 15000,
+            job: "Engineer"
+        },
+        {
+            name: "Kousalya",
+            age:  21,
+            city: "Coimbatore",
+            salary: 18000,
+            job: "Developer"
+        },
+        {
+            name: "Ramya",
+            age:  21,
+            city: "Coimbatore",
+            salary: 12000,
+            job: "Tester"
+        },
+        {
+            name: "Ravi",
+            age:  25,
+            city: "Coimbatore",
+            salary: 25000,
+            job: "Team Lead"
+        },
+        {
+            name: "Pushpa",
+            age:  30,
+            city: "Coimbatore",
+            salary: 50000,
+            job: "Manager"
+        }
+    ];
+    var k = '<tbody>'
+    for(i = 0;i < mainObj.length; i++){
+        k+= '<tr>';
+        k+= '<td>' + mainObj[i].name + '</td>';
+        k+= '<td>' + mainObj[i].age + '</td>';
+        k+= '<td>' + mainObj[i].city + '</td>';
+        k+= '<td>' + mainObj[i].salary + '</td>';
+        k+= '<td>' + mainObj[i].job + '</td>';
+        k+= '</tr>';
+    }
+    k+='</tbody>';
+    document.getElementById('tableData').innerHTML = k;
+    </script>
+
+Question 3 (B)
+<input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for names.." title="Type in a name">
+<table cellpadding="2" cellspacing="2" border="1"  width="50%" align="center">
+<thead>
+    <tr>
+        <th>Name</th>
+        <th width="20%">Age</th>
+        <th width="12%">City</th>
+        <th width="12%">Salary</th>
+        <th width="30%">Job</th>
+    </tr>
+</thead>
+    <tbody id="tableData"></tbody>
+</table>
+<script type="text/javascript">
+    var mainObj = [
+        {
+            name: "Ranjitha",
+            age:  21,
+            city: "Coimbatore",
+            salary: 15000,
+            job: "Engineer"
+        },
+        {
+            name: "Kousalya",
+            age:  21,
+            city: "Coimbatore",
+            salary: 18000,
+            job: "Developer"
+        },
+        {
+            name: "Ramya",
+            age:  21,
+            city: "Coimbatore",
+            salary: 12000,
+            job: "Tester"
+        },
+        {
+            name: "Ravi",
+            age:  25,
+            city: "Coimbatore",
+            salary: 25000,
+            job: "Team Lead"
+        },
+        {
+            name: "Pushpa",
+            age:  30,
+            city: "Coimbatore",
+            salary: 50000,
+            job: "Manager"
+        }
+    ];
+    var k = '<tbody>'
+    for(i = 0;i < mainObj.length; i++){
+        k+= '<tr>';
+        k+= '<td>' + mainObj[i].name + '</td>';
+        k+= '<td>' + mainObj[i].age + '</td>';
+        k+= '<td>' + mainObj[i].city + '</td>';
+        k+= '<td>' + mainObj[i].salary + '</td>';
+        k+= '<td>' + mainObj[i].job + '</td>';
+        k+= '</tr>';
+    }
+    k+='</tbody>';
+    document.getElementById('tableData').innerHTML = k;
+    
+    function myFunction() {
+  var input, filter, table, tr, td, i, txtValue;
+  input = document.getElementById("myInput");
+  filter = input.value.toUpperCase();
+  table = document.getElementById("tableData");
+  tr = table.getElementsByTagName("tr");
+  for (i = 0; i < tr.length; i++) {
+    td = tr[i].getElementsByTagName("td")[0];
+    if (td) {
+      txtValue = td.textContent || td.innerText;
+      if (txtValue.toUpperCase().indexOf(filter) > -1) {
+        tr[i].style.display = "";
+      } else {
+        tr[i].style.display = "none";
+      }
+    }       
+  }
+}
+</script>
+
+Question 3 (C)
+<table cellpadding="2" cellspacing="2" border="1"  width="50%" align="center">
+<thead>
+    <tr>
+        <th>Name</th>
+        <th width="20%">Age</th>
+        <th width="12%">City</th>
+        <th width="12%">Salary</th>
+        <th width="30%">Job</th>
+        <th width="30%">Action</th>
+    </tr>
+</thead>
+    <tbody id="tableData"></tbody>
+</table>
+<script type="text/javascript">
+    var mainObj = [
+        {
+            name: "Ranjitha",
+            age:  21,
+            city: "Coimbatore",
+            salary: 15000,
+            job: "Engineer"
+        },
+        {
+            name: "Kousalya",
+            age:  21,
+            city: "Coimbatore",
+            salary: 18000,
+            job: "Developer"
+        },
+        {
+            name: "Ramya",
+            age:  21,
+            city: "Coimbatore",
+            salary: 12000,
+            job: "Tester"
+        },
+        {
+            name: "Ravi",
+            age:  25,
+            city: "Coimbatore",
+            salary: 25000,
+            job: "Team Lead"
+        },
+        {
+            name: "Pushpa",
+            age:  30,
+            city: "Coimbatore",
+            salary: 50000,
+            job: "Manager"
+        }
+    ];
+    var k = '<tbody>'
+    for(i = 0;i < mainObj.length; i++){
+        k+= '<tr>';
+        k+= '<td>' + mainObj[i].name + '</td>';
+        k+= '<td>' + mainObj[i].age + '</td>';
+        k+= '<td>' + mainObj[i].city + '</td>';
+        k+= '<td>' + mainObj[i].salary + '</td>';
+        k+= '<td>' + mainObj[i].job + '</td>';
+        k+= '<td><input type="button" value="Delete" onclick="deleteRow(this)"></td>';
+        k+= '</tr>';
+    }
+    k+='</tbody>';
+    document.getElementById('tableData').innerHTML = k;
+    
+ 
+function deleteRow(r) {
+  var i = r.parentNode.parentNode.rowIndex;
+  document.getElementById("tableData").deleteRow(i-1);
+}
+</script>
+
+Question 3 (D)
+<div class="form">
+        <form onsubmit="addObject(event)">
+          <input type="text" required placeholder="Name" id="name" />
+          <input type="number" required placeholder="Age" id="age" />
+          <input type="text" required placeholder="City" id="city" />
+          <input type="text" required placeholder="Salary" id="salary" />
+          <input type="text" required placeholder="Job" id="job" />
+          <button type="submit">Add Record</button>
+        </form>
+      </div>
+ 
+<table cellpadding="2" cellspacing="2" border="1"  width="50%" align="center">
+<thead>
+    <tr>
+        <th>Name</th>
+        <th width="20%">Age</th>
+        <th width="12%">City</th>
+        <th width="12%">Salary</th>
+        <th width="30%">Job</th>
+    </tr>
+</thead>
+    <tbody id="tableData"></tbody>
+</table>
+<script type="text/javascript">
+    var mainObj = [
+        {
+            name: "Ranjith",
+            age:  21,
+            city: "Coimbatore",
+            salary: 15000,
+            job: "Engineer"
+        },
+        {
+            name: "Kishore",
+            age:  21,
+            city: "Coimbatore",
+            salary: 18000,
+            job: "Developer"
+        },
+        {
+            name: "Ramesh",
+            age:  21,
+            city: "Coimbatore",
+            salary: 12000,
+            job: "Tester"
+        },
+        {
+            name: "Rahul",
+            age:  25,
+            city: "Coimbatore",
+            salary: 25000,
+            job: "Team Lead"
+        },
+        {
+            name: "Parashuram",
+            age:  30,
+            city: "Coimbatore",
+            salary: 50000,
+            job: "Manager"
+        }
+    ];
+    function display(mainObj){
+    var k = '<tbody>'
+    for(i = 0;i < mainObj.length; i++){
+        k+= '<tr>';
+        k+= '<td>' + mainObj[i].name + '</td>';
+        k+= '<td>' + mainObj[i].age + '</td>';
+        k+= '<td>' + mainObj[i].city + '</td>';
+        k+= '<td>' + mainObj[i].salary + '</td>';
+        k+= '<td>' + mainObj[i].job + '</td>';
+        k+= '</tr>';
+    }
+    k+='</tbody>';
+    document.getElementById('tableData').innerHTML = k;
+    }
+    display(mainObj);
+    function addObject(e) {
+  e.preventDefault();
+  let mainOb = {};
+  let name = document.getElementById("name").value;
+  let age = document.getElementById("age").value;
+  let city = document.getElementById("city").value;
+  let salary = document.getElementById("salary").value;
+  let job = document.getElementById("job").value;
+  mainOb.name = name;
+  mainOb.age = Number(age);
+  mainOb.city = city;
+  mainOb.salary = salary;
+  mainOb.job = job;
+ 
+  //   superheroes.push(superhero);
+ 
+ mainObj.push(mainOb);
+ 
+  display(mainObj);
+  //document.getElementById('tableData').innerHTML = mainObj;
+  document.getElementById("name").value = "";
+  document.getElementById("age").value = "";
+  document.getElementById("city").value = "";
+  document.getElementById("salary").value = "";
+  document.getElementById("job").value = "";
+  
+} </script>
+    
+Question 4
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Crud Application</title>
+    <style>
+      * {
+        margin: 0px;
+        padding: 0px;
+      }
+ 
+      .data {
+        height: 500px;
+        width: 80%;
+        background-color: lightgray;
+        margin-left: 10%;
+        margin-top: 50px;
+        padding: 20px;
+        display: inline-block;
+      }
+ 
+      .table {
+        width: 100%;
+        margin-top: 20px;
+        /* font-family: calibri; */
+      }
+      th,
+      td {
+        height: 40px;
+        text-align: center;
+        padding: 5px;
+      }
+ 
+      .form {
+        margin-top: 20px;
+      }
+      input {
+        height: 40px;
+        text-indent: 20px;
+      }
+ 
+      button {
+        padding: 10px;
+      }
+ 
+      .modal {
+        width: 100%;
+        height: 100vh;
+        background-color: rgba(0, 0, 0, 0.5);
+        position: fixed;
+        display: none;
+      }
+ 
+      .modalchild {
+        height: 200px;
+        width: 70%;
+        background-color: white;
+        margin-left: 15%;
+        margin-top: 100px;
+        display: inline-block;
+        padding: 30px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="modal" onclick="hideModal(event)">
+      <div class="modalchild">
+        <div class="form">
+          <form onsubmit="updateBus(event)">
+            <input type="text" required placeholder="Name" id="upname" />
+            <input type="text" required placeholder="Source" id="upsource" />
+            <input type="text" required placeholder="Destination" id="updestination" />
+            <input type="number" required placeholder="Number" id="upnumber" />
+            <input type="number" required placeholder="Passenger Capacity" id="uppassenger" />
+            <button type="submit">Update Bus</button>
+          </form>
+        </div>
+      </div>
+    </div>
+ 
+    <div class="data">
+      <h1>Buses</h1>
+ 
+      <div class="form">
+        <form onsubmit="addBus(event)">
+          <input type="text" required placeholder="Name" id="name" />
+          <input type="text" required placeholder="Source" id="source" />
+          <input type="text" required placeholder="Destination" id="destination" />
+          <input type="number" required placeholder="Number" id="number" />
+          <input type="number" required placeholder="Passenger Capacity" id="passenger" />
+          <button type="submit">Add Bus</button>
+        </form>
+      </div>
+ 
+      <div class="form">
+        <input
+          type="text"
+          placeholder="Search Source"
+          id="searchSource"
+          onkeyup="searchBySource()"
+        />
+        <input
+          type="text"
+          placeholder="Search Destination"
+          id="searchDestination"
+          onkeyup="searchBySource()"
+        />
+      </div>
+ 
+      <table border="1" class="table" cellspacing="0">
+        <thead>
+          <tr>
+            <th>Sr no</th>
+            <th>Name</th>
+            <th>Source</th>
+            <th>Destination</th>
+            <th>Number</th>
+            <th>Passenger</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody class="tdata" id="tdata"></tbody>
+      </table>
+    </div>
+ 
+    <script>
+      display();
+      window.onload = function () {
+  let buses = [
+    {
+      name: "VeeVee",
+      source: "BLR",
+      destination: "CBE",
+      number: 6,
+      passenger: 58,
+    },
+    {
+      name: "SRS",
+      source: "Chennai",
+      destination: "Hyderabad",
+      number: 5,
+      passenger: 58,
+    },
+    {
+      name: "KKN",
+      source: "Mumbai",
+      destination: "Pune",
+      number: 8,
+      passenger: 50,
+    },
+  ];
+ 
+  if (localStorage.getItem("buses") == null) {
+    localStorage.setItem("buses", JSON.stringify(buses));
+  }
+};
+ 
+function display(superarray = undefined) {
+  let tabledata = "";
+  let buses;
+  if (superarray == undefined) {
+    buses = JSON.parse(localStorage.getItem("buses"));
+  } else {
+    buses = superarray;
+  }
+ 
+  buses.forEach(function (bus, index) {
+    let currentrow = `<tr>
+      <td>${index + 1}</td>
+      <td>${bus.name}</td>
+      <td>${bus.source}</td>
+      <td>${bus.destination}</td>
+      <td>${bus.number}</td>
+      <td>${bus.passenger}</td>
+      <td>
+      <button onclick='deleteBus(${index})'>delete</button>
+     
+      </td>
+      </tr>`;
+ 
+    tabledata += currentrow;
+  });
+ 
+  document.getElementsByClassName("tdata")[0].innerHTML = tabledata;
+  //   document.getElementById("tdata").innerHTML = tabledata;
+}
+ 
+display();
+ 
+function addBus(e) {
+  e.preventDefault();
+  let bus = {};
+  let name = document.getElementById("name").value;
+  let source = document.getElementById("source").value;
+  let destination = document.getElementById("destination").value;
+  let number = document.getElementById("number").value;
+  let passenger = document.getElementById("passenger").value;
+  bus.name = name;
+  bus.source = source;
+  bus.destination = destination;
+  bus.number = Number(number);
+  bus.passenger = Number(passenger);
+ 
+  //   buses.push(bus);
+ 
+  let buses = JSON.parse(localStorage.getItem("buses"));
+  buses.push(bus);
+  localStorage.setItem("buses", JSON.stringify(buses));
+ 
+  display();
+ 
+  document.getElementById("name").value = "";
+  document.getElementById("source").value = "";
+  document.getElementById("destination").value = "";
+  document.getElementById("number").value = "";
+  document.getElementById("passenger").value = "";
+}
+ 
+function searchBySource() {
+  let searchValue1 = document.getElementById("searchSource").value;
+  let searchValue2 = document.getElementById("searchDestination").value;
+  let buses = JSON.parse(localStorage.getItem("buses"));
+  let newdata = buses.filter(function (bus) {
+   
+    return (
+      bus.source.toUpperCase().indexOf(searchValue1.toUpperCase()) !=-1 &&
+      bus.destination.toUpperCase().indexOf(searchValue2.toUpperCase()) != -1
+    );
+  });
+display(newdata);
+}
+ 
+function deleteBus(index) {
+  let buses = JSON.parse(localStorage.getItem("buses"));
+  buses.splice(index, 1);
+  localStorage.setItem("buses", JSON.stringify(buses));
+  display();
+}
+ 
+      </script>
+ 
+  </body>
+</html>
