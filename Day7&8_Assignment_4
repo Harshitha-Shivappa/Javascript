@@ -1,0 +1,373 @@
+HTML file:
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      * {
+        margin: 0px;
+        padding: 0px;
+      }
+
+      .header {
+        height: 150px;
+        width: 100%;
+        background-color: lightgrey;
+        line-height: 70px;
+      }
+
+      h1 {
+        margin-left: 5%;
+        display: inline-block;
+        width: 30%;
+        vertical-align: top;
+      }
+	  p {
+		margin-left: 5%;
+        width: 30%;
+        vertical-align: top;
+	  }
+
+      .search {
+        height: 70px;
+        width: 60%;
+        /* background-color: red; */
+        display: inline-block;
+      }
+
+      .search input {
+        height: 40px;
+        width: 100%;
+        text-indent: 20px;
+        border-radius: 5px;
+        border: 1px solid gray;
+        outline: none;
+      }
+		
+		.num input {
+        height: 40px;
+        width: 10%;
+        text-indent: 20px;
+        border-radius: 5px;
+        border: 1px solid gray;
+        outline: none;
+      }
+
+      .products {
+        width: 100%;
+        height: auto;
+        /* background-color: gray; */
+      }
+
+      .productwrapper {
+        height: auto;
+        width: 80%;
+        /* background-color: green; */
+        margin-left: 10%;
+        margin-bottom: 50px;
+      }
+
+      .product {
+        height: auto;
+        width: 25%;
+        /* background-color: red; */
+        display: inline-block;
+        margin-top: 25px;
+        margin-left: 6.25%;
+        border: 1px solid lightgray;
+      }
+
+      .prodimg {
+        height: 300px;
+        width: 100%;
+        /* background-color: yellow; */
+        overflow: hidden;
+      }
+
+      .product h3,
+      .product p {
+        padding: 5px;
+        padding-left: 10px;
+      }
+
+      .product p {
+        color: gray;
+      }
+      button {
+        padding: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="header">
+      <h1>Shopping House</h1>
+      <div class="search">
+        <input
+          type="search"
+          onkeyup="searchProduct(this.value)"
+          placeholder="Search For Products"
+        />
+      </div>
+	  <div class="num">
+	  <input
+          type="number"
+		  id="minimum"
+		  name="min"
+          placeholder="Minimum price"
+        />
+		<input
+          type="number"
+		  id="maximum"
+		  name="max"
+          placeholder="Maximum price"
+        />
+		<button type="button" onclick="myFunction(minimum.value, maximum.value)">Search</button>
+	  </div>
+    </div>
+
+    <div class="products">
+      <div class="productwrapper" id="productwrapper"></div>
+    </div>
+    <div class="products">
+      <h1>Cart</h1> <p id="tag"> </p>
+      <div class="productwrapper" id="cart"></div>
+    </div>
+    <script src="shopping.js"></script>
+  </body>
+</html>
+
+JS file:
+let products = [
+  {
+    id: 1,
+    name: "White Tshirt",
+    size: "L",
+    color: "white",
+    price: 1200,
+    image: "white.jpg",
+    description: "Good looking white tshirt",
+  },
+  {
+    id: 2,
+    name: "Black Shirt",
+    size: "M",
+    color: "Black",
+    price: 1500,
+    image: "bshirt.jpg",
+    description: "Good looking black shirt",
+  },
+
+  {
+    id: 3,
+    name: "Checked Shirt",
+    size: "S",
+    color: "White & Black",
+    price: 900,
+    image: "cshirt.jpg",
+    description: "Good looking Checked Shirt",
+  },
+
+  {
+    id: 4,
+    name: "Black Female Blazer",
+    size: "M",
+    color: "Black",
+    price: 3000,
+    image: "blazer.jpg",
+    description: "Beautifull Blazer",
+  },
+
+  {
+    id: 5,
+    name: "Navy Blue Top",
+    size: "S",
+    color: "Blue",
+    price: 1300,
+    image: "top.jpg",
+    description: "Good looking Top",
+  },
+
+  {
+    id: 6,
+    name: "Indian Dress",
+    size: "M",
+    color: "Henna",
+    price: 1500,
+    image: "indian.jpg",
+    description: "Good looking Traditional Dress",
+  },
+  {
+    id: 7,
+    name: "Kurtas",
+    size: "XS",
+    color: "Yellow",
+    price: 1300,
+    image: "kurtas.jpg",
+    description: "Good looking Traditional Kurtas",
+  },
+  {
+    id: 8,
+    name: "Kurtis",
+    size: "S",
+    color: "Red",
+    price: 1100,
+    image: "kurti.jpg",
+    description: "Good looking Traditional Kurtis",
+  },
+  {
+    id: 9,
+    name: "Jeans",
+    size: "30",
+    color: "Grey",
+    price: 1800,
+    image: "jeans.jpg",
+    description: "Good looking Stripped Modern Jeans",
+  },
+  {
+    id: 10,
+    name: "Earrings",
+    size: "Free Size",
+    color: "Blue",
+    price: 1000,
+    image: "earrings.jpeg",
+    description: "Good looking Traditional Earrings",
+  },
+  {
+    id: 11,
+    name: "Shoes",
+    size: "48",
+    color: "Brown",
+    price: 2200,
+    image: "shoes.jpeg",
+    description: "Good looking Office Shoes",
+  },
+  {
+    id: 12,
+    name: "Socks",
+    size: "Free Size",
+    color: "Black",
+    price: 500,
+    image: "socks.jpg",
+    description: "Good looking Office Wear Socks",
+  },
+];
+
+cart = [];
+function displayProducts(productsData, who = "productwrapper") {
+  let productsString = "";
+
+  productsData.forEach(function (product, index) {
+    let { id, name, image, color, description, price, size } = product;
+
+    if (who == "productwrapper") {
+      productsString += ` <div class="product">
+        <div class="prodimg">
+          <img src="productimages/${image}" width="100%" />
+        </div>
+        <h3>${name}</h3>
+        <p>Price : ${price}$</p>
+        <p>Size : ${size}</p>
+        <p>Color : ${color}</p>
+        <p>${description}</p>
+        <p>
+          <button onclick="alreadySearch(${id})">Add to Cart</button>
+        </p>
+      </div>`;
+    } else if (who == "cart") {
+      productsString += ` <div class="product">
+        <div class="prodimg">
+          <img src="productimages/${image}" width="100%" />
+        </div>
+        <h3>${name}</h3>
+        <p>Price : ${price}$</p>
+        <p>Size : ${size}</p>
+        <p>Color : ${color}</p>
+        <p>${description}</p>
+        <p>
+          <button onclick="removeFromCart(${id})">Remove from Cart</button>
+        </p>
+      </div>`;
+    }
+  });
+
+  document.getElementById(who).innerHTML = productsString;
+}
+
+displayProducts(products);
+
+function searchProduct(searchValue) {
+  let searchedProducts = products.filter(function (product, index) {
+    let searchString =
+      product.name + " " + product.color + " " + product.description;
+
+    return searchString.toUpperCase().indexOf(searchValue.toUpperCase()) != -1;
+  });
+
+  displayProducts(searchedProducts);
+}
+
+// this is a function to get a product based on id from a particular array
+// @param 1 the array u want to get products from
+// @param 2 the id u want to search
+
+function getProductByID(productArray, id) {
+  return productArray.find(function (product) {
+    return product.id == id;
+  });
+}
+
+function removeFromCart(id) {
+  // getting the index based on id
+  let index = cart.findIndex(function (product) {
+    return product.id == id;
+  });
+
+  //   removing from cart based on index
+  cart.splice(index, 1);
+  displayProducts(cart, "cart");
+   document.getElementById("tag").innerHTML = "Total number of products "+cart.length;
+}
+
+function myFunction(minimum, maximum) {
+	 let filteredProducts = products.filter(function (product) {
+    let searchString = product.price;
+	
+    if(searchString >= minimum && searchString <= maximum) {
+		return (product);
+	}
+    });
+	displayProducts(filteredProducts);
+}
+
+function alreadySearch(id) {
+	console.log(cart.length);
+	let t=0;
+	if(cart.length == 0) {
+		addToCart(id);
+	}
+	else {
+		for(let i=0; i<cart.length; i++) {
+		console.log("Outside if"+ cart[i].id+ "  " +id);
+		if(cart[i].id == id) {
+			console.log("Inside if"+ cart[i].id+ "  " +id);
+			alert("Product already exists");
+			t=1;
+		}
+		}
+		if(t!=1) {
+			addToCart(id);
+		}
+		
+	}
+		
+}	
+function addToCart(id) {
+  // getting the product
+  let pro = getProductByID(products, id);
+  //   putting in cart
+  cart.push(pro);
+  displayProducts(cart, "cart");
+  document.getElementById("tag").innerHTML = "Total number of products "+cart.length;
+	}
